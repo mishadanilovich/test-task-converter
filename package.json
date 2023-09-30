@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.46.2",
+    "styled-components": "^6.0.8",
+    "zod": "^3.22.2"
   },
   "devDependencies": {
     "@types/node": "^20.8.0",
