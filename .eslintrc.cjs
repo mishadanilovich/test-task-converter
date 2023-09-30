@@ -20,7 +20,34 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'import/no-extraneous-dependencies': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
+    'import/prefer-default-export': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
+        pathGroups: [
+          {
+            pattern: '@/*',
+            group: 'external',
+            position: 'after',
+          },
+        ],
+        'newlines-between': 'always',
+      },
+    ],
+  },
+  settings: {
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+      },
+      alias: {
+        map: [['@', './src']],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
 };
