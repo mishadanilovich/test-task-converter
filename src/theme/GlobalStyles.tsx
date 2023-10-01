@@ -11,6 +11,10 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  
+  #root {
+    height: 100%;
+  }
 
   & * {
     box-sizing: border-box;
