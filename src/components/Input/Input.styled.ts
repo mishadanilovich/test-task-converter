@@ -5,15 +5,11 @@ const inputErrorStyles = css`
 `;
 
 export const InputWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  row-gap: 4px;
+  ${({ theme }) => theme.commonClasses.htmlElementWrapper};
 `;
 
 export const Label = styled.label`
-  font-size: 12px;
-  color: ${({ theme }) => theme.palette.lightBlue};
+  ${({ theme }) => theme.commonClasses.htmlElementLabel};
 `;
 
 export const Input = styled.input<{ $error?: boolean }>`
@@ -26,6 +22,12 @@ export const Input = styled.input<{ $error?: boolean }>`
   background: ${({ theme }) => theme.palette.lightBlue};
 
   ${({ $error }) => $error && inputErrorStyles};
+
+  &::placeholder {
+    color: inherit;
+    font-size: inherit;
+    opacity: 0.7;
+  }
 `;
 
 export const Error = styled.span`

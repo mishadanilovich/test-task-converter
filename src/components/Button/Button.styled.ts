@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 
 export const ButtonWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  row-gap: 4px;
+  ${({ theme }) => theme.commonClasses.htmlElementWrapper};
 `;
 
 export const Label = styled.span`
-  font-size: 12px;
-  color: ${({ theme }) => theme.palette.lightBlue};
+  ${({ theme }) => theme.commonClasses.htmlElementLabel};
   text-transform: uppercase;
 `;
 

@@ -30,4 +30,10 @@ export const GlobalStyles = createGlobalStyle`
     border: none;
     background: transparent;
   }
+  
+  & select {
+    outline: none;
+    border: none;
+    background: transparent;
+  }
 `;
