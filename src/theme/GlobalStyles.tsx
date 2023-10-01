@@ -23,4 +23,10 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
     background: transparent;
   }
+  
+  & input {
+    outline: none;
+    border: none;
+    background: transparent;
+  }
 `;
