@@ -1,5 +1,3 @@
-import { Input } from '@/components';
-
 export const App = () => {
-  return <Input label="dsafsaf" error="ошибка" />;
+  return <div>Hello World!</div>;
 };

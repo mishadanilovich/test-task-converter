@@ -7,6 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Martian Mono', sans-serif;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -18,7 +19,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   & button {
-    color: currentColor;
+    outline: none;
     border: none;
     cursor: pointer;
     background: transparent;

@@ -18,6 +18,7 @@ export const Label = styled.label`
 
 export const Input = styled.input<{ $error?: boolean }>`
   font-family: inherit;
+  font-weight: inherit;
   font-size: 14px;
   padding: 8px 12px;
   border-radius: 12px;
