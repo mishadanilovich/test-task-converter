@@ -1,5 +1,10 @@
 import { z } from 'zod';
 
+import { Currency } from '@/types/enums';
+
+export const SUBMIT_BUTTON_LABEL = 'Check button';
+export const SUBMIT_BUTTON_TEXT = 'Check information';
+
 export const FORM_FIELDS = {
   name: 'name',
   surname: 'surname',
@@ -15,11 +20,11 @@ export const defaultValues = {
   [FORM_FIELDS.name]: '',
   [FORM_FIELDS.surname]: '',
   [FORM_FIELDS.bankCard]: '',
-  [FORM_FIELDS.currency]: '',
-  [FORM_FIELDS.mount]: undefined,
-  [FORM_FIELDS.subCurrency]: '',
-  [FORM_FIELDS.subMount]: undefined,
-  [FORM_FIELDS.totalMount]: undefined,
+  [FORM_FIELDS.currency]: Currency.BYN,
+  [FORM_FIELDS.mount]: 0,
+  [FORM_FIELDS.subCurrency]: Currency.EUR,
+  [FORM_FIELDS.subMount]: 0,
+  [FORM_FIELDS.totalMount]: 0,
 };
 
 export const MAX_CARD_NUMBER = 19;

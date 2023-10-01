@@ -29,6 +29,11 @@ export const Input = styled.input<{ $error?: boolean }>`
     text-transform: uppercase;
     opacity: 0.7;
   }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 `;
 
 export const Error = styled.span`
