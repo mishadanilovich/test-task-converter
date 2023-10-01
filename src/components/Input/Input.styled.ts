@@ -26,6 +26,7 @@ export const Input = styled.input<{ $error?: boolean }>`
   &::placeholder {
     color: inherit;
     font-size: inherit;
+    text-transform: uppercase;
     opacity: 0.7;
   }
 `;

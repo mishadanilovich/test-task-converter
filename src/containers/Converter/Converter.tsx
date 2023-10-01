@@ -1,5 +1,6 @@
+import { ConverterDto } from '@/types/dto';
+
 import { ConverterForm } from './components';
-import { ConverterDto } from './Converter.interface';
 
 export const Converter = () => {
   const handleFormSubmit = (data: ConverterDto) => {

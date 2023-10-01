@@ -14,13 +14,15 @@ export const FORM_FIELDS = {
 export const defaultValues = {
   [FORM_FIELDS.name]: '',
   [FORM_FIELDS.surname]: '',
-  [FORM_FIELDS.bankCard]: undefined,
+  [FORM_FIELDS.bankCard]: '',
   [FORM_FIELDS.currency]: '',
   [FORM_FIELDS.mount]: undefined,
   [FORM_FIELDS.subCurrency]: '',
   [FORM_FIELDS.subMount]: undefined,
   [FORM_FIELDS.totalMount]: undefined,
 };
+
+export const MAX_CARD_NUMBER = 19;
 
 export const validationSchema = z.object({
   [FORM_FIELDS.name]: z.string().nonempty('Name is required'),
