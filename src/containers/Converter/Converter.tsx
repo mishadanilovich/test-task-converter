@@ -1,11 +1,21 @@
+import { useState } from 'react';
+
 import { ConverterDto } from '@/types/dto';
 
-import { ConverterForm } from './components';
+import { ConverterCheck, ConverterForm } from './components';
+import * as Styled from './Converter.styled';
 
 export const Converter = () => {
+  const [checkInformation, setCheckInformation] = useState<ConverterDto | null>(null);
+
   const handleFormSubmit = (data: ConverterDto) => {
-    console.log(data);
+    setCheckInformation(data);
   };
 
-  return <ConverterForm onFormSubmit={handleFormSubmit} />;
+  return (
+    <Styled.Container>
+      <ConverterForm onFormSubmit={handleFormSubmit} />
+      {checkInformation && <ConverterCheck data={checkInformation} />}
+    </Styled.Container>
+  );
 };

@@ -5,4 +5,5 @@ export const enum Currency {
   CAD = 'CAD',
   AUD = 'AUD',
   EUR = 'EUR',
+  USD = 'USD',
 }
