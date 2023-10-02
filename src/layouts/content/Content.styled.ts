@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MainWrapper = styled.main`
-  height: calc(100% - 80px);
+  min-height: calc(100% - 80px);
   display: flex;
   align-items: center;
   justify-content: center;
