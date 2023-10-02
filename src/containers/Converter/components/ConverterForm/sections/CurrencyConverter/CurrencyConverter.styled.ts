@@ -18,6 +18,7 @@ export const Container = styled.div`
 
 export const RowInner = styled.div`
   width: 100%;
-  display: flex;
-  column-gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
 `;

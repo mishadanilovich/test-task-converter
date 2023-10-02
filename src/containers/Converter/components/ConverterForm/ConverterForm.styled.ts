@@ -5,3 +5,9 @@ export const FormWrapper = styled.form`
   flex-direction: column;
   row-gap: 20px;
 `;
+
+export const Actions = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+`;

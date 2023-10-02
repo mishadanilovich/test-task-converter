@@ -4,6 +4,8 @@ import { Currency } from '@/types/enums';
 
 export const SUBMIT_BUTTON_LABEL = 'Check button';
 export const SUBMIT_BUTTON_TEXT = 'Check information';
+export const CONFIRM_CONVERT_BUTTON_TEXT = 'Yes, convert';
+export const RESET_BUTTON_TEXT = 'Reset form';
 
 export const FORM_FIELDS = {
   name: 'name',
