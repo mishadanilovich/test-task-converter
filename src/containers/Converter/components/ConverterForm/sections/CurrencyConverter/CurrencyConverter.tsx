@@ -24,9 +24,9 @@ import * as Styled from './CurrencyConverter.styled';
 
 export const CurrencyConverter = () => {
   const { control, setValue, watch } =
-    useFormContext<Pick<ConverterDto, 'mount' | 'currency' | 'subMount' | 'subCurrency' | 'totalMount'>>();
+    useFormContext<Pick<ConverterDto, 'amount' | 'currency' | 'subAmount' | 'subCurrency' | 'totalAmount'>>();
 
-  const userMount = watch(FORM_FIELDS.mount);
+  const userAmount = watch(FORM_FIELDS.amount);
   const selectedCurrency = watch(FORM_FIELDS.currency);
   const exchangeEuroValue = useMemo(
     () => currencies.find(({ name }) => name === selectedCurrency)?.exchangeEuroValue,
@@ -35,14 +35,14 @@ export const CurrencyConverter = () => {
 
   useEffect(() => {
     if (exchangeEuroValue) {
-      const mountEUR = userMount / exchangeEuroValue;
-      const totalMount = mountEUR / EUR_TO_USD_EXCHANGE_RATES;
-      const serviceCommission = totalMount * SERVICE_COMMISSION;
+      const amountEUR = userAmount / exchangeEuroValue;
+      const totalAmount = amountEUR / EUR_TO_USD_EXCHANGE_RATES;
+      const serviceCommission = totalAmount * SERVICE_COMMISSION;
 
-      setValue(FORM_FIELDS.subMount, +mountEUR.toFixed(MAX_DECIMAL_NUMBERS));
-      setValue(FORM_FIELDS.totalMount, +(totalMount - serviceCommission).toFixed(MAX_DECIMAL_NUMBERS));
+      setValue(FORM_FIELDS.subAmount, +amountEUR.toFixed(MAX_DECIMAL_NUMBERS));
+      setValue(FORM_FIELDS.totalAmount, +(totalAmount - serviceCommission).toFixed(MAX_DECIMAL_NUMBERS));
     }
-  }, [exchangeEuroValue, setValue, userMount]);
+  }, [exchangeEuroValue, setValue, userAmount]);
 
   return (
     <Styled.Container>
@@ -55,7 +55,7 @@ export const CurrencyConverter = () => {
               render={({ field }) => <Select {...field} label={SECTION_LABEL} options={currencyOptions} />}
             />
             <Controller
-              name={FORM_FIELDS.mount}
+              name={FORM_FIELDS.amount}
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <Input
@@ -75,7 +75,7 @@ export const CurrencyConverter = () => {
               )}
             />
             <Controller
-              name={FORM_FIELDS.subMount}
+              name={FORM_FIELDS.subAmount}
               control={control}
               /* todo Fix disabled prop. It's not enough to disabled input */
               render={({ field }) => <Input {...field} disabled />}
@@ -83,7 +83,7 @@ export const CurrencyConverter = () => {
           </CommonStyled.SectionWrapper>
         </Styled.RowInner>
         <Controller
-          name={FORM_FIELDS.totalMount}
+          name={FORM_FIELDS.totalAmount}
           control={control}
           /* todo Fix disabled prop. It's not enough to disabled input */
           render={({ field }) => <Input {...field} label={TOTAL_AMOUNT_LABEL} disabled />}

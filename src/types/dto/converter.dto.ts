@@ -3,8 +3,8 @@ export interface ConverterDto {
   surname: string;
   bankCard: string;
   currency: string;
-  mount: number;
+  amount: number;
   subCurrency: string;
-  subMount: number;
-  totalMount: number;
+  subAmount: number;
+  totalAmount: number;
 }
