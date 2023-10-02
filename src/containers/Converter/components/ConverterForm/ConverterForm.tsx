@@ -21,7 +21,9 @@ export const ConverterForm = ({ onFormSubmit }: ConverterFormProps) => {
       <Styled.FormWrapper onSubmit={formMethods.handleSubmit(onFormSubmit)}>
         <UserInfo />
         <CurrencyConverter />
-        <Button label={SUBMIT_BUTTON_LABEL}>{SUBMIT_BUTTON_TEXT}</Button>
+        <Button label={SUBMIT_BUTTON_LABEL} disabled={!formMethods.formState.isValid}>
+          {SUBMIT_BUTTON_TEXT}
+        </Button>
       </Styled.FormWrapper>
     </FormProvider>
   );

@@ -16,6 +16,7 @@ import {
   EUR_TO_USD_EXCHANGE_RATES,
   MAX_DECIMAL_NUMBERS,
   SECTION_LABEL,
+  SERVICE_COMMISSION,
   SUB_CURRENCY_LABEL,
   TOTAL_AMOUNT_LABEL,
 } from './constants';
@@ -34,11 +35,12 @@ export const CurrencyConverter = () => {
 
   useEffect(() => {
     if (exchangeEuroValue) {
-      setValue(FORM_FIELDS.subMount, +(userMount / exchangeEuroValue).toFixed(MAX_DECIMAL_NUMBERS));
-      setValue(
-        FORM_FIELDS.totalMount,
-        +(userMount / exchangeEuroValue / EUR_TO_USD_EXCHANGE_RATES).toFixed(MAX_DECIMAL_NUMBERS)
-      );
+      const mountEUR = userMount / exchangeEuroValue;
+      const totalMount = mountEUR / EUR_TO_USD_EXCHANGE_RATES;
+      const serviceCommission = totalMount * SERVICE_COMMISSION;
+
+      setValue(FORM_FIELDS.subMount, +mountEUR.toFixed(MAX_DECIMAL_NUMBERS));
+      setValue(FORM_FIELDS.totalMount, +(totalMount - serviceCommission).toFixed(MAX_DECIMAL_NUMBERS));
     }
   }, [exchangeEuroValue, setValue, userMount]);
 
@@ -55,8 +57,12 @@ export const CurrencyConverter = () => {
             <Controller
               name={FORM_FIELDS.mount}
               control={control}
-              render={({ field }) => (
-                <Input {...field} onChange={(event) => field.onChange(formatInputToPositiveNumbers(event))} />
+              render={({ field, fieldState: { error } }) => (
+                <Input
+                  {...field}
+                  error={error?.message}
+                  onChange={(event) => field.onChange(formatInputToPositiveNumbers(event))}
+                />
               )}
             />
           </CommonStyled.SectionWrapper>

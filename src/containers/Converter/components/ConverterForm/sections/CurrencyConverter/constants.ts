@@ -15,5 +15,7 @@ export const currencyOptions: SelectOption[] = [
 ];
 export const additionalCurrencyOptions: SelectOption[] = [{ name: Currency.EUR, value: Currency.EUR }];
 
-export const EUR_TO_USD_EXCHANGE_RATES = 8.23;
 export const MAX_DECIMAL_NUMBERS = 2;
+
+export const EUR_TO_USD_EXCHANGE_RATES = 8.23;
+export const SERVICE_COMMISSION = 0.02;

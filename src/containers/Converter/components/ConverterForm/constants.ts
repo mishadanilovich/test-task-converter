@@ -32,9 +32,12 @@ export const MAX_CARD_NUMBER = 19;
 export const validationSchema = z.object({
   [FORM_FIELDS.name]: z.string().nonempty('Name is required'),
   [FORM_FIELDS.surname]: z.string().nonempty('Surname is required'),
-  [FORM_FIELDS.bankCard]: z.number(),
+  [FORM_FIELDS.bankCard]: z
+    .string()
+    .nonempty('Bank card number is required')
+    .regex(/^\d{4}-\d{4}-\d{4}-\d{4}$/, 'Invalid bank card number format: xxxx-xxxx-xxxx-xxxx'),
   [FORM_FIELDS.currency]: z.string(),
-  [FORM_FIELDS.mount]: z.number(),
+  [FORM_FIELDS.mount]: z.number().nonnegative().min(1),
   [FORM_FIELDS.subCurrency]: z.string(),
   [FORM_FIELDS.subMount]: z.number(),
   [FORM_FIELDS.totalMount]: z.number(),

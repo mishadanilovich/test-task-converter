@@ -19,6 +19,5 @@ export const Container = styled.div`
 export const RowInner = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
   column-gap: 15px;
 `;

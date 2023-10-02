@@ -28,4 +28,9 @@ export const Button = styled.button`
   &:hover {
     background: ${({ theme }) => theme.palette.blue};
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
 `;
